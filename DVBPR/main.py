@@ -239,7 +239,7 @@ while step * batch_size <= training_epoch*oneiteration+1:
         epoch+=1
         saver.save(sess,'./DVBPR_auc_'+str(K)+'_'+str(step)+'.ckpt')
         auc_valid,auc_test=Evaluation(step)
-        print 'Epoch #'+str(epoch)+':'+str(auc_test)+' '+str(auc_valid)+'\n'
+        print ('Epoch #'+str(epoch)+':'+str(auc_test)+' '+str(auc_valid)+'\n')
         f.write('Epoch #'+str(epoch)+':'+str(auc_test)+' '+str(auc_valid)+'\n')
         f.flush()
     

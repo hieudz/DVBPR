@@ -168,7 +168,7 @@ class DCGAN(object):
           y=self.data[idx]['c']
           imgs[i],labels[i]=jpg,y
         q.put((imgs,labels))
-    q=Queue.Queue(maxsize=5)
+    q=queue.Queue(maxsize=5)
         
     for i in range(1):
       t = threading.Thread(target=load_batch,args=[q])

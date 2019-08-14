@@ -3,10 +3,10 @@ import math
 import random
 import time
 from PIL import Image
-import Queue
+import queue
 import numpy as np
 import threading
-from cStringIO import StringIO
+from io.StringIO import StringIO
 import tensorflow as tf
 
 dataset_name = 'AmazonFashion6ImgPartitioned.npy'

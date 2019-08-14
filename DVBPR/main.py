@@ -172,7 +172,7 @@ def AUC(train,test,U,I):
     return ans
 
 def Evaluation(step):
-    print '...'
+    print ('...')
     U=sess.run(thetau)
     I=np.zeros([itemnum,K],dtype=np.float32)
     idx=np.array_split(range(itemnum),(itemnum+batch_size-1)/batch_size)
@@ -184,7 +184,7 @@ def Evaluation(step):
             input_images[cc]=np.uint8(np.asarray(Image.open(StringIO(Item[j]['imgs'])).convert('RGB').resize((224,224))))
             cc+=1
         I[idx[i][0]:(idx[i][-1]+1)]=sess.run(result_test,feed_dict={image_test:input_images})[:(idx[i][-1]-idx[i][0]+1)]
-    print 'export finised!'
+    print ('export finised!')
     np.save('UI_'+str(K)+'_'+str(step)+'.npy',[U,I])
     return AUC(user_train,user_validation,U,I), AUC(user_train,user_test,U,I)
 
@@ -233,7 +233,7 @@ while step * batch_size <= training_epoch*oneiteration+1:
 
     sess.run(optimizer, feed_dict={keep_prob: dropout})
     
-    print 'Step#'+str(step)+' CNN update'
+    print ('Step#'+str(step)+' CNN update')
 
     if step*batch_size / oneiteration >epoch:
         epoch+=1
@@ -244,5 +244,5 @@ while step * batch_size <= training_epoch*oneiteration+1:
         f.flush()
     
     step += 1
-print "Optimization Finished!"
+print ("Optimization Finished!")
 

@@ -6,7 +6,7 @@ from PIL import Image
 import queue
 import numpy as np
 import threading
-from io.StringIO import StringIO
+from io import StringIO
 import tensorflow as tf
 
 dataset_name = 'AmazonFashion6ImgPartitioned.npy'

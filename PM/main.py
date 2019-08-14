@@ -4,7 +4,7 @@ import json
 import random
 import time
 from PIL import Image
-import Queue
+import queue
 import scipy.misc
 
 import numpy as np
@@ -128,7 +128,7 @@ def CNN(x,dropout):
     return fc3
 
 
-from cStringIO import StringIO
+from io import StringIO
 def loadimg(item):
     return np.round(np.array(Image.open(StringIO(Item[item]['imgs'])).convert('RGB').resize((224,224)),dtype=np.float64))
 
@@ -245,6 +245,7 @@ for cat in range(6):
         if i==0: _outimg=outimg
         else: _outimg=np.concatenate([_outimg,outimg],axis=0)
     scipy.misc.toimage(_outimg,cmin=0.0).save('gan_'+str(cat)+'.jpg')
-    print np.array(P_SCORE).T
+    print(np.array(P_SCORE).T)
+
 
     

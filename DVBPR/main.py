@@ -162,7 +162,7 @@ def AUC(train,test,U,I):
         count=0
         tmpans=0
         #for j in xrange(itemnum):
-        for j in random.sample(xrange(itemnum),100): #sample
+        for j in random.sample(range(itemnum),100): #sample
             if j in M: continue
             if T[i]>T[j]: tmpans+=1
             count+=1

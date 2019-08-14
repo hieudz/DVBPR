@@ -154,7 +154,6 @@ def to_json(output_path, *layers):
 
 def make_gif(images, fname, duration=2, true_image=False):
   import moviepy.editor as mpy
-
   def make_frame(t):
     try:
       x = images[int(len(images)/duration*t)]
